@@ -1,4 +1,4 @@
-import streamlit as stimport streamlit as st
+import streamlit as st
 
 # 🎨 MBTI별 스트레스 해소법 데이터 + 이모지
 mbti_tips = {
@@ -23,4 +23,42 @@ mbti_tips = {
     "ENTJ": "🎯 목표 세우기 🏆 생산적인 활동 📈 리더십 발휘 👑가 최고의 해소법!"
 }
 
+# 🌟 Streamlit 앱 UI
+st.set_page_config(page_title="MBTI Stress Relief", page_icon="🌿", layout="centered")
 
+st.markdown(
+    """
+    <h1 style='text-align: center; color: #4CAF50;'>🌿 MBTI별 스트레스 해소법 ✨</h1>
+    <p style='text-align: center; font-size:18px;'>당신의 MBTI를 선택하면 <b>맞춤형 스트레스 해소법</b>을 알려드립니다! 💡</p>
+    """,
+    unsafe_allow_html=True
+)
+
+# 사용자 MBTI 선택
+selected_mbti = st.selectbox("👉 당신의 MBTI를 선택하세요:", list(mbti_tips.keys()))
+
+# 결과 출력 (카드 스타일)
+if selected_mbti:
+    st.markdown(
+        f"""
+        <div style='
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            margin-top: 20px;
+            text-align: center;
+        '>
+            <h2 style='color:#2E8B57;'>💡 {selected_mbti} 타입의 스트레스 해소법</h2>
+            <p style='font-size:20px; color:#333;'>{mbti_tips[selected_mbti]}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+# 푸터
+st.markdown("---")
+st.markdown(
+    "<p style='text-align:center; font-size:14px; color:gray;'>✨ Made with ❤️ using Streamlit ✨</p>",
+    unsafe_allow_html=True
+)
