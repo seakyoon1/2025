@@ -177,4 +177,5 @@ if autoplay:
     next_frame = (stage_idx + 1) % len(stages)
     st.session_state.frame = next_frame
     time.sleep(float(speed))
-    st.experimental_rerun()
+    st.rerun()
+
